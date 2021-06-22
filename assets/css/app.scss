@@ -88,3 +88,28 @@
   display: block;
   margin: -1rem 0 2rem;
 }
+
+#chat-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  height: 500px;
+}
+
+#chat-messages {
+  font-size: 1em;
+  padding: 1em;
+  margin: -1em 1em 1em -1em;
+  border: 1px solid #ccc;
+  width: 80%;
+}
+
+#chat-messages p {
+  margin: 0px;
+  padding: 0px;
+}
+
+#user-list p {
+  margin: 0px;
+  padding: 0px;
+}
