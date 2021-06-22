@@ -1,9 +1,10 @@
+
 <p>Currently Chatting in <strong><%= @room_id %></strong> as <strong> <%= @username %> </strong></p>
 
 <div id="chat-container">
     <div id="chat-messages" phx-update="append">
         <%= for message <- @messages do %>
-            <% display_message(message) %>
+            <%= display_message(message) %>
         <% end %>
     </div>
     <div id="user-list">
