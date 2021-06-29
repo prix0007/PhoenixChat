@@ -67,13 +67,13 @@ defmodule ChatWeb.RoomLive do
 
   def display_message(%{type: :system, uuid: uuid, content: content}) do
     ~E"""
-      <p id="<%= uuid %>"> <em> <%= content %> </em> </p>
+      <p id="<%= uuid %>" class="tag is-info is-small is-rounded mt-1 mb-1 text"> <em> <%= content %> </em> </p>
     """
   end
 
   def display_message(%{uuid: uuid, content: content, username: username}) do
     ~E"""
-      <p id="<%= uuid %>"> <strong><%= username %></strong>: <%= content %> </p>
+      <p id="<%= uuid %>" class="tag is-rounded mt-1 mb-1 text"> <strong><%= username %></strong>: <%= content %> </p>
     """
   end
 

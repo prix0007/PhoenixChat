@@ -1,21 +1,24 @@
+<div class="container">
+    <p class="title is-6 is-primary mt-6">Currently Chatting in <strong><%= @room_id %></strong> as <strong> <%= @username %> </strong></p>
 
-<p>Currently Chatting in <strong><%= @room_id %></strong> as <strong> <%= @username %> </strong></p>
+    <div id="chat-container" class="columns mt-3 mb-6">
+        <div id="chat-messages" phx-update="append" class="column is-three-quarters card chat">
+            <%= for message <- @messages do %>
+                <%= display_message(message) %>
+            <% end %>
+        </div>
+        <div id="user-list" class="column card">
+            <h3 class="title is-info is-6">Users Online</h3>
+            <%= for user <- @users_list do %>
+                <p class="tag is-info is-big"> <%= user%> </p>
+            <% end %>
+        </div>
+    </div>
+    <div>
+        <%= f = form_for :chat, "#", id: "chat-form", phx_submit: :submit_message, phx_change: :form_update %>
+            <%= text_input f, :message, placeholder: "Enter you message....", value: @message, class: "input is-primary is-medium" %>
+            <button class="button is-info is-small is-outline mt-2 mb-2">Press Enter to Send Text</button>
+        </form>
 
-<div id="chat-container">
-    <div id="chat-messages" phx-update="append">
-        <%= for message <- @messages do %>
-            <%= display_message(message) %>
-        <% end %>
     </div>
-    <div id="user-list">
-        <h3>Users Online</h3>
-        <%= for user <- @users_list do %>
-            <p> <%= user%> </p>
-        <% end %>
-    </div>
-</div>
-<div>
-    <%= f = form_for :chat, "#", id: "chat-form", phx_submit: :submit_message, phx_change: :form_update %>
-        <%= text_input f, :message, placeholder: "Enter you message....", value: @message %>
-    </form>
 </div>
